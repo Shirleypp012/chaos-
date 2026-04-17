@@ -1,0 +1,38 @@
+{
+  "entities": {
+    "Quote": {
+      "title": "Quote",
+      "description": "A generated madness quote.",
+      "type": "object",
+      "properties": {
+        "content": { "type": "string", "description": "The text content of the quote." },
+        "category": { "type": "string", "description": "Category: workplace, romance, slacking." },
+        "authorId": { "type": "string", "description": "UID of the creator." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp." }
+      },
+      "required": ["content", "category", "authorId", "createdAt"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "A marquee message or a 'flying' shout.",
+      "type": "object",
+      "properties": {
+        "content": { "type": "string", "description": "The text content." },
+        "color": { "type": "string", "description": "HEX color." },
+        "authorId": { "type": "string", "description": "UID of the creator." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp." }
+      },
+      "required": ["content", "color", "authorId", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/quotes/{quoteId}": {
+      "schema": "Quote",
+      "description": "Public collection of lunacy quotes."
+    },
+    "/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Global marquee and shout messages."
+    }
+  }
+}
